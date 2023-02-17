@@ -15,7 +15,7 @@ int main(void)
 	char abc[] = "abcdefghijklmnopqrstuvwxyz";
 	int i;
 
-	for (i = strlen(abc); i >= 0; i--)
+	for (i = strlen(abc); i > -1; i--)
 	{
 		putchar(abc[i]);
 	}
