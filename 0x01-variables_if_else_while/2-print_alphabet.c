@@ -13,7 +13,7 @@ int main(void)
 {
 	int i = 0;
 	char abc[] = "abcdefghijklmnopqrstuvwxyz";
-	
+
 	while (abc[i])
 	{
 		putchar(abc[i]);
