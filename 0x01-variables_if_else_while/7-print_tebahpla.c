@@ -12,13 +12,11 @@
  */
 int main(void)
 {
-	char abc[] = "abcdefghijklmnopqrstuvwxyz";
-	int i = strlen(abc);
+	char abc;
 
-	while (i > -1)
+	for (abc = 'z'; abc >= 'a'; abc--)
 	{
 		putchar(abc[i]);
-		i--;
 	}
 	putchar('\n');
 	return (0);
