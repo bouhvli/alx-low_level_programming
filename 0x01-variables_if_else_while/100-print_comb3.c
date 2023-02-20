@@ -3,7 +3,7 @@
 /**
  * main - program that prints all possible different combinations of two digits
  *
- * Return> will return 0.
+ * Return: will return 0.
  */
 int main(void)
 {
