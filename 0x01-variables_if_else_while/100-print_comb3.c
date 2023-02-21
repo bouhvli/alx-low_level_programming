@@ -1,10 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - Prints all possible combinations of two different digits,
- *        in ascending order, separated by a comma followed by a space.
+ * main - program that prints all possible different combinations of two digits
  *
- * Return: Always 0.
+ * Return: will return 0.
  */
 int main(void)
 {
