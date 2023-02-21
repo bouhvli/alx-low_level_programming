@@ -14,7 +14,7 @@ int main(void)
 {
   int number = 1024, i, sum = 1;
 
-  for(i = 0; i < number; i++)
+  for(i = 1; i < number; i++)
   {
     if((i % 3) || (i % 5))
     {
