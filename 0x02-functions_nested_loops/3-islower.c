@@ -1,5 +1,5 @@
 /**
- * op_add - Makes the sum of two numbers
+ * _islower - check if its a lower case
  * @c: First operand
  *
  * Description: function that checks for lowercase character.
