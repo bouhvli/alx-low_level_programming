@@ -18,9 +18,9 @@ int main(void)
   {
     if((i % 3) || (i % 5))
     {
-      sum = sum * i;
+      sum = sum + i;
     }
-    printf("%d", sum);
+    printf("%d", i);
   }
   printf("%d", sum);
   return (0);
