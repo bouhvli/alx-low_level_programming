@@ -16,9 +16,9 @@ int main(void)
 
   for(i = 0; i < number; i++)
   {
-    if((i % 3) || (i % 5))
+    if((i % 3 == 0) || (i % 5 == 0))
     {
-      printf("%d", i);
+      printf("%d ", i);
       sum = sum + i;
     }
   }
