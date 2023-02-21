@@ -1,9 +1,10 @@
 /**
  * print_alphabet - prints the alphabet, in lowercase
+ * Description: Write a program that prints alphabet.
  */
 #include "main.h"
 
-void print_alphabet()
+void print_alphabet(void)
 {
 	char i;
 
