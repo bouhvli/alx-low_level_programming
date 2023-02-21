@@ -1,5 +1,5 @@
 /**
- * _islower - check if its a lower case
+ * _isalpha - a function that checks for alphabetic character
  * @c: First operand
  *
  * Description: function that checks for lowercase character.
@@ -9,13 +9,10 @@
 
 int _isalpha(int c)
 {
-	if ((c >= 0 && c <= 47) || (c >= 58 && c <= 64))
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 	{
-		return (0);
+		return (1);
 	}
-	else if ((c >= 91 && c <= 96) || (c >= 123 && c <= 127))
-	{
-		return (0);
-	}
-	return (1);
+
+	return (0);
 }
