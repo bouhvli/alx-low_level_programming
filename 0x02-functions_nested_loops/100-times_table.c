@@ -11,7 +11,7 @@
 
 void print_times_table(int n)
 {
-	int m, y, r;
+	int x, m, r;
 
 	if (n >= 0 && n <= 14)
 	{
