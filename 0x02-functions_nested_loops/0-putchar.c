@@ -1,12 +1,12 @@
 /**
- * putchar0 - prints '_putchar'
+ * main - Entry point prints '_putchar'
  * Description: Write a program that prints _putchar,
  * followed by a new line.
  * Return: 0 that mean success
  */
 #include "main.h"
 
-int putchar0(void)
+int main(void)
 {
 	char ch[] = "_putchar";
 	int i = 0;
