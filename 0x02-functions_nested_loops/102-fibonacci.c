@@ -1,7 +1,9 @@
 /**
-  * main - Prints the first 52 fibonacci numbers
+  * main - a program that prints the first 50 Fibonacci numbers,
+  * starting with 1 and 2, followed by a new line.
   *
-  * Return: Nothing!
+  * he numbers must be separated by comma, followed by a space ,
+  * Return: 0.
   */
 #include <stdio.h>
 
