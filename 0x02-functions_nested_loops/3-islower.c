@@ -5,6 +5,8 @@
  * Description: function that checks for lowercase character.
  * Return: 1 if it's a lower case and 0 if not.
  */
+#include "main.h"
+
 int _islower(int c)
 {
 
