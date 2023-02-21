@@ -10,19 +10,19 @@
  * Return: the sum of two values.
  */
 #include "main.h"
-
+#include <stdio.h>
 void print_to_98(int n)
 {
 	while (n > 97)
 	{
-		_putchar(n + '0');
+		printf(n);
 		_putchar(44);
 		_putchar(32);
 		n--;
 	}
 	while (n < 99)
 	{
-		_putchar(n + '0');
+		printf(n);
 		_putchar(44);
 		_putchar(32);
 		n++;
