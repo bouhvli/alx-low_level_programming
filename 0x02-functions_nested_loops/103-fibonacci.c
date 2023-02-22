@@ -7,7 +7,7 @@
   */
 #include <stdio.h>
 
-int main()
+int main(void)
 {
 	int i = 0;
 	long a = 1, b = 2, sum = b;
