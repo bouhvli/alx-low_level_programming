@@ -26,8 +26,11 @@ int main(void)
 		{
 			printf("%i", i);
 		}
-		printf(" ");
 		i++;
+		if (i < 101)
+		{
+			printf(" ");
+		}
 	}
 	printf("\n");
 	return (0);
