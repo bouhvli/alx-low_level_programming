@@ -7,11 +7,13 @@
 #include "main.h"
 void print_number(int n)
 {
-	int m, i;
+	float m, number;
+	int i;
 
-	if (n < 0)
+	number = n;
+	if (number < 0)
 	{
-		n *= -1;
+		number *= -1;
 		_putchar('-');
 	}
 
@@ -19,21 +21,21 @@ void print_number(int n)
 	i = 1;
 	while (i)
 	{
-		if (n / (m * 10) > 0)
+		if (number / (m * 10) > 0)
 			m *= 10;
 		else
 			i = 0;
 	}
-	while (n >= 0)
+	while (number >= 0)
 	{
 		if (m == 1)
 		{
-			_putchar(n % 10 + '0');
-			n = -1;
+			_putchar(number % 10 + '0');
+			number = -1;
 		}
 		else
 		{
-			_putchar((n / m % 10) + '0');
+			_putchar((number / m % 10) + '0');
 			m /= 10;
 		}
 	}
