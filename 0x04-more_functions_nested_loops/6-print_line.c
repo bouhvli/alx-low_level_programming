@@ -1,5 +1,5 @@
 /**
- *  print_line - draw a straight line in the terminal.
+ * print_line - draw a straight line in the terminal.
  * @n: First operand
  *
  * Description: a function that draws a straight line in the terminal.
