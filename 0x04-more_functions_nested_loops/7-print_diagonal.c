@@ -5,7 +5,7 @@
  */
 #include "main.h"
 
-void more_numbers(void)
+void print_diagonal(int n)
 {
 	int i, j;
 
