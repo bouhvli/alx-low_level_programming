@@ -1,9 +1,8 @@
 /**
  * print_number - print an interger.
- * @size: operator 1
+ * @n: operator 1
  *
- * Description: a function that prints the numbers,
- * from 0 to 9, followed by a new line.
+ * Description: a function that prints an integer.
  */
 #include "main.h"
 void print_number(int n)
