@@ -6,7 +6,7 @@
 
 int main()
 {
-	int length = 16;
+	int length = 16, i = 0;
 	char *password = malloc(length + 1);
 
 	char *upper = "ABCDEFGHIJKLMNOPQRSTVWUXYZ";
@@ -21,7 +21,7 @@ int main()
 
 	srand(time(NULL) * getpid());
 
-	for (int i = 0; i < length; i++)
+	while (i < length)
 	{
 		int c_type = rand() % 4;
 		if (c_type == 0)
@@ -32,9 +32,10 @@ int main()
 			password[i] = upper[rand() % upper_length];
 		else
 			password[i] = symbol[rand() % symbol_length];
+		i++;
 	}
 	password[length] = '\0';
-	printf("Tada! Congrats");
+	printf("Tada! Congrats\n");
 	free(password);
 	return (0);
 }
