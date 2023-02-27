@@ -18,8 +18,8 @@ void rev_string(char *s)
 	{
 		count++;
 	}
-	b_str = str;
-	ed_str = str + count - 1;
+	b_str = s;
+	ed_str = s + count - 1;
 	for (i = 0; i < (count - 1) / 2; i++)
 	{
 		str = *ed_str;
