@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * puts_half - prints n elements of an array of integers
+ * print_array - prints n elements of an array of integers
  * @a: the string
  * @n: string length
  * Description: prints a string,in reverse,
@@ -18,7 +18,7 @@ void print_array(int *a, int n)
 		{
 			printf(", ");
 		}
-		printf("%d",*(a + i));
+		printf("%d", *(a + i));
 	}
 	putchar('\n');
 }
