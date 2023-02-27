@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * swap_int - swap the value of two vars
+ * _strlen - swap the value of two vars
  * @s: the string
  *
  * Description: get the lenght of a string.
