@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _strcpy - prints n elements of an array of integers
+ * _atoi - prints n elements of an array of integers
  * @s: the string
  * Description: prints a string,in reverse,
  * followed by a new line,
