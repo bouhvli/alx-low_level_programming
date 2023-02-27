@@ -19,8 +19,10 @@ void puts_half(char *str)
 	for (i = (count - 1) / 2; i < count - 1; i++)
 	{
 		if (i != (count - 1) / 2)
+		{
 			printf(", ");
-		_putchar(*(str + i));
+		}
+		putchar(str[i]);
 	}
 	_putchar('\n');
 }
