@@ -6,36 +6,18 @@
 
 int main()
 {
-	int length = 16, i = 0;
-	char *password = malloc(length + 1);
+	int myrand;
+	int count;
+	int total;
 
-	char *upper = "ABCDEFGHIJKLMNOPQRSTVWUXYZ";
-	char *lower = "abcdefghijklmnopqrstvwuxyz";
-	char *num = "1234567890";
-	char *symbol = "<>,.-_:;´¨{}[]^`+*¿?¡'!·$%&/()=@#¬";
-
-	int upper_length = strlen(upper);
-	int lower_length = strlen(lower);
-	int num_length = strlen(num);
-	int symbol_length = strlen(symbol);
-
-	srand(time(NULL) * getpid());
-
-	while (i < length)
+	srand(time(NULL));
+	for (count = 0, total = 2772; total > 122; count++)
 	{
-		int c_type = rand() % 4;
-		if (c_type == 0)
-			password[i] = num[rand() % num_length];
-		else if (c_type == 1)
-			password[i] = lower[rand() % lower_length];
-		else if (c_type == 2)
-			password[i] = upper[rand() % upper_length];
-		else
-			password[i] = symbol[rand() % symbol_length];
-		i++;
+		myrand = (rand() % 125) + 1;
+		printf("%c", myrand);
+		total -= myrand;
 	}
-	password[length] = '\0';
-	printf("Tada! Congrats\n");
-	free(password);
+	printf("%c", total);
+
 	return (0);
 }
