@@ -2,9 +2,9 @@
 /**
  * swap_int - swap the value of two vars
  * @s: the string
- * Description: get the lenght of a string
- * Return: the length of th string
  *
+ * Description: get the lenght of a string.
+ * Return: the length of th string
  */
 int _strlen(char *s)
 {
