@@ -21,15 +21,21 @@ char *leet(char *str)
 	{'l', '1'},
 	{'L', '1'}
 	};
-	for (int i = 0; str[i] != '\0'; i++)
+	int i = 0;
+
+	while (str[i] != '\0')
 	{
-		for (int j = 0; j < 6; j++)
+		int j = 0;
+
+		while (j < 9)
 		{
 			if (str[i] == letterdict[j][0])
 			{
 				str[i] = letterdict[j][1];
 			}
+			j++;
 		}
+		i++;
 	}
 	return (str);
 }
