@@ -13,11 +13,11 @@ char *cap_string(char *str)
 	int trigger;
 	char sep[] = ",;.!?(){}\n\t\" ";
 
-	for (i = 0, sep = 0; str[i] != '\0'; i++)
+	for (i = 0, sep[i] = 0; str[i] != '\0'; i++)
 	{
 		if (str[0] > 96 && str[0] < 123)
 			trigger = 1;
-		for (j = 0; nots[j] != '\0'; j++)
+		for (j = 0; sep[j] != '\0'; j++)
 		{
 			if (sep[j] == str[i])
 				trigger = 1;
