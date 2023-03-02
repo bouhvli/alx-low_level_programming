@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * reverse_array - function that recieve a string and number
+ * string_toupper - function that recieve a string.
  * @str: first string
  *
  * Description: a function that changes all lowercase.
