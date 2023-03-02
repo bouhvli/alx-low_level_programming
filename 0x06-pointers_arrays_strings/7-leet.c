@@ -24,10 +24,10 @@ char *leet(char *str)
 	int i = 0;
 
 	while (str[i] != '\0')
-	{
+	{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
 		int j = 0;
 
-		while (j < 9)
+		while (j < 10)
 		{
 			if (str[i] == letterdict[j][0])
 			{
