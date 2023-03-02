@@ -9,21 +9,27 @@
  */
 char *leet(char *str)
 {
-	int i;
-
-	for (i = 0; str[i] != '\0'; i++)
+	char letterdict[6][2] = {
+	{'a', '4'},
+	{'A', '4'},
+	{'e', '3'},
+	{'E', '3'},
+	{'o', '0'},
+	{'O', '0'},
+	{'t', '7'},
+	{'T', '7'},
+	{'l', '1'},
+	{'L', '1'}
+	}; 
+	for (int i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] == 'a' || str[i] == 'A')
-			str[i] = '4';
-		if (str[i] == 'e' || str[i] == 'E')
-			str[i] = '3';
-		if (str[i] == 'o' || str[i] == 'O')
-			str[i] = '0';
-		if (str[i] == 't' || str[i] == 'T')
-			str[i] = '7';
-		if (str[i] == 'l' || str[i] == 'L')
-			str[i] = '1';
+		for (int j = 0; j < 6; j++)
+		{
+			if (str[i] == letterdict[j][0])
+			{
+				str[i] = letterdict[j][1];
+			}
+		}
 	}
-
 	return (str);
 }
