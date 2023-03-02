@@ -9,7 +9,7 @@
  */
 char *leet(char *str)
 {
-	char letterdict[6][2] = {
+	char letterdict[10][2] = {
 	{'a', '4'},
 	{'A', '4'},
 	{'e', '3'},
@@ -20,7 +20,7 @@ char *leet(char *str)
 	{'T', '7'},
 	{'l', '1'},
 	{'L', '1'}
-	}; 
+	};
 	for (int i = 0; str[i] != '\0'; i++)
 	{
 		for (int j = 0; j < 6; j++)
