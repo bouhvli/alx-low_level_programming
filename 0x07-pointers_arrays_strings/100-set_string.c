@@ -1,5 +1,5 @@
 /**
- * print_diagsums - a function that sets the value of a
+ * set_string - a function that sets the value of a
  * pointer to a char.
  * @s: the address of the string
  * @to:the address of the string
