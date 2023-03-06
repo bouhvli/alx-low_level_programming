@@ -9,7 +9,7 @@
 #include "main.h"
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int i, j, length = 1;
+	unsigned int i, j, length = 0;
 
 	for (i = 0; *(s + i) != '\0'; i++)
 	{
