@@ -2,16 +2,16 @@
  * print_chessboard - a function that prints the chessboard.
  * @a: the address of the string
  *
- */
-#include "main.h"
-/**
  * _putchar - writes the character c to stdout
  * @c: The character to print
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
+#include "main.h"
+
 int _putchar(char c);
+
 void print_chessboard(char (*a)[8])
 {
 	int i, j;
