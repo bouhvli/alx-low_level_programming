@@ -7,7 +7,7 @@
  * if matched or NULL if not.
  */
 #include "main.h"
-
+#include <stddef.h>
 char *_strchr(char *s, char c)
 {
 	char *ptr;
@@ -22,5 +22,5 @@ char *_strchr(char *s, char c)
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
