@@ -13,7 +13,7 @@ int _finder(int x, int y)
 	}
 	else if (y * y == x)
 	{
-	return (b);
+	return (y);
 	}
 	else
 	{
