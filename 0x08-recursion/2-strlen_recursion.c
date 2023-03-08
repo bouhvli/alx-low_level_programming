@@ -3,7 +3,8 @@
  * @s:the string.
  *
  * Description : a function that returns the length of a string.
- * Return : the lenght of the string.
+ * Return : the lenght of the string as number and if its == '\0'
+ * 	    it will return 0;
  */
 #include "main.h"
 int _strlen_recursion(char *s)
