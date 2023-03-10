@@ -8,6 +8,7 @@ int _atio_multi(char *argv[])
 {
 	int num1 = 0;
 	int num2 = 0;
+	int i = 0;
 	
 	while (argv[1][i] != '\0')
         {
