@@ -3,6 +3,7 @@
  * @argc: count number of args
  * @argv: store the name of it
  *
+ * Return: 0
  */
 #include "main.h"
 int main(int argc, char *argv[])
