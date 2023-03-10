@@ -5,9 +5,11 @@
  *
  */
 #include "main.h"
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	for (int i = 0; i < argc; i++)
+	int i = 0;
+
+	while (i < argc)
 	{
 		char *arg = argv[i];
 
@@ -17,5 +19,7 @@ void main(int argc, char *argv[])
 			arg++;
 		}
 		_putchar('\n');
+		i++;
 	}
+	return (0);
 }
