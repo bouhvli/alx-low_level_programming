@@ -7,13 +7,13 @@
  * Description: prints a string, followed by a new line,
  * to stdout.
  */
-void _puts(char *str)
+void _puts(char *s)
 {
 	int count = 0;
 
-	while (*(str + count) != '\0')
+	while (*(s + count) != '\0')
 	{
-		_putchar(*(str + count));
+		_putchar(*(s + count));
 		count++;
 	}
 	_putchar('\n');
