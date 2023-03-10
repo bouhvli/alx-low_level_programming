@@ -8,8 +8,10 @@
 #include "main.h"
 int main(int argc, char *argv[])
 {
+	int a = argc - 1;
+
 	(void)argv;
-	_putchar(argc + '0');
+	_putchar(a + '0');
 	_putchar('\n');
 	return (0);
 }
