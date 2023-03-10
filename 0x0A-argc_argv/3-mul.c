@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
 	
 	if (result < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		result = -result;
     	}
 	if (result == 0)
