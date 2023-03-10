@@ -5,10 +5,12 @@
  *
  */
 #include "main.h"
-void main(int argc, char *argv[]) {
+void main(int argc, char *argv[])
+{
 	for (int i = 0; i < argc; i++)
 	{
 		char *arg = argv[i];
+
 		while (*arg != '\0')
 		{
 			_putchar(*arg);
