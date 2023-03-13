@@ -23,5 +23,7 @@ int main(void)
     printf("2 :%s\n", s2);
     printf("1 :%s\n", s1);
     free(s);
+    free(s1);
+    free(s2);
     return (0);
 }

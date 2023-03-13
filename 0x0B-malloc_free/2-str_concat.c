@@ -26,7 +26,7 @@ int len(char *str)
 	}
 }
 /**
- * _strdup - returns a pointer to a newly allocated space
+ * str_concat - returns a pointer to a newly allocated space
  * in memory, which contains a copy of the string given as
  * a parameter.
  * @s1: string number 1.
@@ -48,7 +48,7 @@ char *str_concat(char *s1, char *s2)
 	{
 		return (NULL);
 	}
-	if ( s1 == NULL)
+	if (s1 == NULL)
 	{
 		s1 = "";
 	}
@@ -73,6 +73,5 @@ char *str_concat(char *s1, char *s2)
 		}
 			i++;
 		}
-		*(ptrs + i) = '\0';
 	return (ptrs);
 }
