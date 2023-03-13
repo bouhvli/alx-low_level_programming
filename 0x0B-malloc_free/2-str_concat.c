@@ -48,26 +48,31 @@ char *str_concat(char *s1, char *s2)
 	{
 		return (NULL);
 	}
-	else
+	if ( s1 == NULL)
 	{
-		while (i < (length + length_s2))
+		s1 = "";
+	}
+	if (s2 == NULL)
+	{
+		s2 = "";
+	}
+	while (i < (length + length_s2))
+	{
+		while (*(s1 + i) != '\0')
 		{
-			while (*(s1 + i) != '\0')
-			{
-				*(ptrs + i) = *(s1 + j);
-				i++;
-				j++;
-			}
-			j = 0;
-			while (*(s2 + j) != '\0')
-			{
-				*(ptrs + i) = *(s2 + j);
-				i++;
-				j++;
-			}
-				i++;
-			}
-			*(ptrs + i) = '\0';
+			*(ptrs + i) = *(s1 + j);
+			i++;
+			j++;
 		}
+		j = 0;
+		while (*(s2 + j) != '\0')
+		{
+			*(ptrs + i) = *(s2 + j);
+			i++;
+			j++;
+		}
+			i++;
+		}
+		*(ptrs + i) = '\0';
 	return (ptrs);
 }
