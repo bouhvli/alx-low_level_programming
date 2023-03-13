@@ -43,7 +43,6 @@ char *str_concat(char *s1, char *s2)
 	length = len(s1);
 	sum =  (length + length_s2);
 
-	printf("%d\n", sum);
 	if (s1 == NULL)
 	{
 		*(s1 + 0) = ' ';
