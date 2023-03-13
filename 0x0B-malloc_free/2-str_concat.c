@@ -42,20 +42,21 @@ char *str_concat(char *s1, char *s2)
 	length_s2 = len(s2);
 	length = len(s1);
 	sum =  (length + length_s2 - 1);
-
+	if (sum < 0)
+	{
+		ptrs = malloc(sizeof(char));
+		*(ptrs + 0) = '\0';
+		return (ptrs);
+	}
 	ptrs = malloc(sizeof(char) * sum);
 	if (ptrs == NULL)
 	{
 		return (NULL);
 	}
 	if (s1 == NULL)
-	{
 		s1 = "";
-	}
 	if (s2 == NULL)
-	{
 		s2 = "";
-	}
 	while (i < (length + length_s2))
 	{
 		while (*(s1 + i) != '\0')
