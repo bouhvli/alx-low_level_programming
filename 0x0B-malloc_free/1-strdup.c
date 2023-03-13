@@ -16,7 +16,7 @@ int len(char *str)
 	{
 		i++;
 	}
-	return (i);
+	return (i + 1);
 }
 /**
  * _strdup - returns a pointer to a newly allocated space
@@ -31,7 +31,6 @@ char *_strdup(char *str)
 	char *ptrs;
 	int i = 0, length = len(str);
 
-	_putchar(length + '0');
 	if (str == NULL)
 	{
 		return (NULL);
@@ -45,11 +44,12 @@ char *_strdup(char *str)
 		}
 		else
 		{
-			while (*(str + i) != '\0')
+			while (i < length)
 			{
 				*(ptrs + i) = *(str + i);
 				i++;
 			}
+			*(ptrs + i) = '\0';
 		}
 		return (ptrs);
 	}
