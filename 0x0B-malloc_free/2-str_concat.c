@@ -69,6 +69,5 @@ char *str_concat(char *s1, char *s2)
 			}
 			*(ptrs + i) = '\0';
 		}
-	}
 	return (ptrs);
 }
