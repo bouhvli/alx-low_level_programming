@@ -43,38 +43,28 @@ char *str_concat(char *s1, char *s2)
 	length = len(s1);
 	sum =  (length + length_s2);
 
-	if (s1 == NULL)
+	ptrs = malloc(sizeof(char) * sum);
+	if (ptrs == NULL)
 	{
-		*(s1 + 0) = '\0';
-	}
-	else if (s2 == NULL)
-	{
-		*(s2 + 0) = '\0';
+		return (NULL);
 	}
 	else
 	{
-		ptrs = malloc(sizeof(char) * sum);
-		if (ptrs == NULL)
+		while (i < (length + length_s2))
 		{
-			return (NULL);
-		}
-		else
-		{
-			while (i < (length + length_s2))
+			while (*(s1 + i) != '\0')
 			{
-				while (*(s1 + i) != '\0')
-				{
-					*(ptrs + i) = *(s1 + j);
-					i++;
-					j++;
-				}
-				j = 0;
-				while (*(s2 + j) != '\0')
-                                {
-                                        *(ptrs + i) = *(s2 + j);
-                                        i++;
-					j++;
-                                }
+				*(ptrs + i) = *(s1 + j);
+				i++;
+				j++;
+			}
+			j = 0;
+			while (*(s2 + j) != '\0')
+			{
+				*(ptrs + i) = *(s2 + j);
+				i++;
+				j++;
+			}
 				i++;
 			}
 			*(ptrs + i) = '\0';
