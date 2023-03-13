@@ -12,11 +12,18 @@ int len(char *str)
 {
 	int i = 0;
 
-	while (*(str + i) != '\0')
+	if (str == NULL)
 	{
-		i++;
+		return (0);
 	}
-	return (i + 1);
+	else
+	{
+		while (*(str + i) != '\0')
+		{
+			i++;
+		}
+		return (i + 1);
+	}
 }
 /**
  * _strdup - returns a pointer to a newly allocated space
