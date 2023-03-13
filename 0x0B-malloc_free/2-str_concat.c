@@ -41,7 +41,7 @@ char *str_concat(char *s1, char *s2)
 
 	length_s2 = len(s2);
 	length = len(s1);
-	sum =  (length + length_s2);
+	sum =  (length + length_s2 - 1);
 
 	ptrs = malloc(sizeof(char) * sum);
 	if (ptrs == NULL)
