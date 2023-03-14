@@ -40,7 +40,7 @@ char **strtow(char *str)
 	words = word_counter(str);
 	if (words < 1)
 		return (NULL);
-	strDup = malloc(sizeof(char *) * (words + 1));
+	strDup = malloc(sizeof(char *) * (words));
 	if (strDup == NULL)
 		return (NULL);
 	i = 0;
@@ -51,11 +51,14 @@ char **strtow(char *str)
 			n = 0;
 			while (str[n] != ' ')
 				n++;
-			strDup[i] = malloc(sizeof(char) * (n + 1));
+			strDup[i] = malloc(sizeof(char) * (n));
 			if (strDup[i] == NULL)
 			{
-				while (--i >= 0)
-					free(strDup[--i]);
+				while (i >= 0)
+				{
+					free(strDup[i]);
+					i--;
+				}
 				free(strDup);
 				return (NULL);
 			}
