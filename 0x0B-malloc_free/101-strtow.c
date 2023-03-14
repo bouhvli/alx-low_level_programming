@@ -39,10 +39,8 @@ int count_words(char *str)
  */
 static char **split_string(char *str, int num_words)
 {
-	int word_index = 0;
-	int i = 0;
-	int j = 0;
-	char **words = (char **) malloc((num_words + 1) * sizeof(char *));
+	int word_index = 0, word_start, word_len, i = 0, j = 0;
+	char **words = (char **) malloc((num_words + 1) * sizeof(char *)), word;
 
 	if (words == NULL)
 		return (NULL);
@@ -53,11 +51,11 @@ static char **split_string(char *str, int num_words)
 			i++;
 		if (str[i] != '\0')
 		{
-			int word_start = i;
+			word_start = i;
 			while (str[i] != ' ' && str[i] != '\0')
 				i++;
-			int word_len = i - word_start;
-			char *word = (char *) malloc((word_len + 1) * sizeof(char));
+			word_len = i - word_start;
+			word = (char *) malloc((word_len + 1) * sizeof(char));
 			if (word == NULL)
 			{
 				while (j < word_index)
