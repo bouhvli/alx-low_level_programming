@@ -54,7 +54,7 @@ static char **split_string(char *str, int num_words)
 			while (str[i] != ' ' && str[i] != '\0')
 				i++;
 			word_len = i - word_start;
-			*word = (char *) malloc((word_len + 1) * sizeof(char));
+			word = malloc((word_len + 1) * sizeof(char *));
 			if (word == NULL)
 			{
 				while (j < word_index)
