@@ -39,7 +39,7 @@ int count_words(char *str)
 static char **split_string(char *str, int num_words)
 {
 	int word_index = 0, word_start, word_len, i = 0, j = 0;
-	char **words = (char **) malloc((num_words + 1) * sizeof(char *)), word;
+	char **words = (char **) malloc((num_words + 1) * sizeof(char *)), *word;
 
 	if (words == NULL)
 		return (NULL);
