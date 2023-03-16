@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 /**
  * malloc_checked -  allocates memory using malloc.
  * @b: the size we want to allocate.
@@ -11,8 +12,9 @@
  */
 void *malloc_checked(unsigned int b)
 {
+	size_t size = INT_MAX;
 
-	if (b == 0)
+	if (b == 0 || b == size)
 	{
 		exit(98);
 	}
