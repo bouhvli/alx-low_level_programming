@@ -4,7 +4,7 @@
 /**
  * is_digit - check if the char is a number
  * @c: char to check
- * 
+ *
  * Return: true if yes and false if not.
  */
 int is_digit(char c)
