@@ -12,13 +12,9 @@
  */
 void *malloc_checked(unsigned int b)
 {
-	size_t size = INT_MAX;
+	void *ptr = malloc(b);
 
-	if (b == 0 || b == size)
-	{
-		exit(98);
-	}
-	if (malloc(b) != NULL)
+	if (ptr != NULL)
 	{
 		return (malloc(b));
 	}
