@@ -27,7 +27,6 @@ int _strlen(char *s)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	int i = 0;
 	char *owner_copy;
 	char *name_copy;
 	struct dog *n_dog;
