@@ -27,6 +27,7 @@ int _strlen(char *s)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
+	int i = 0;
 	char *owner_copy;
 	char *name_copy;
 	struct dog *n_dog;
@@ -52,9 +53,18 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 	owner_copy = owner;
-	n_dog->name = name;
+	while (name != '\0')
+	{
+		n_dog->name[i] = name_copy[i];
+		i++;
+	}
+	i = 0;
 	n_dog->age = age;
-	n_dog->owner = owner;
+	while (owner_copy != '\0')
+	{
+		n_dog->owner[i] = owner_copy[i];
+		i++;
+	}
 	return (n_dog);
 
 }
