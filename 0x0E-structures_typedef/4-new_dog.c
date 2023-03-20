@@ -6,7 +6,6 @@
  * @name: of the dog.
  * @age: of the dog.
  * @owner: of the dog.
- *
  * Return: null if n_dog is null, and the pointer to the
  * new dog :-) if the everything is okee.
  */
