@@ -53,14 +53,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 	owner_copy = owner;
-	while (name != '\0')
+	while (name_copy[i] != '\0')
 	{
 		n_dog->name[i] = name_copy[i];
 		i++;
 	}
 	i = 0;
 	n_dog->age = age;
-	while (owner_copy != '\0')
+	while (owner_copy[i] != '\0')
 	{
 		n_dog->owner[i] = owner_copy[i];
 		i++;
