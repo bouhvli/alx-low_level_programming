@@ -1,6 +1,22 @@
 #include <stdio.h>
-#include "dog.h"
 #include <stdlib.h>
+#include "dog.h"
+/**
+ * _strlen - count the number of bytes in the string
+ * @s: the string
+ *
+ * Return: the number of bytes.
+ */
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (*(s + i) != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
 /**
  * new_dog - create new dog
  * @name: of the dog.
@@ -20,22 +36,22 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		return (NULL);
 	}
-	name_copy = malloc(strlen(name) + 1);
+	name_copy = malloc(_strlen(name) + 1);
 	if (name_copy == NULL)
 	{
-		free(new_dog);
+		free(n_dog);
 		return (NULL);
 	}
-	strcpy(name_copy, name);
+	name_copy = name;
 
-	owner_copy = malloc(strlen(owner) + 1);
+	owner_copy = malloc(_strlen(owner) + 1);
 	if (owner_copy == NULL)
 	{
 		free(name_copy);
-		free(new_dog);
+		free(n_dog);
 		return (NULL);
 	}
-	strcpy(owner_copy, owner)
+	owner_copy = owner;
 	n_dog->name = name;
 	n_dog->age = age;
 	n_dog->owner = owner;
