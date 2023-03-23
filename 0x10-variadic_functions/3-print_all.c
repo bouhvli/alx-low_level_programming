@@ -69,10 +69,10 @@ void print_all(const char * const format, ...)
 	int i = 0, j = 0;
 	char *separator = "";
 	print type_func[] = {
-		{"c", print_char},
-		{"i", print_int},
-		{"f", print_float},
-		{"s", print_string}
+		{"c", output_c},
+		{"i", output_i},
+		{"f", output_f},
+		{"s", output_s}
 	};
 
 	va_start(args, format);
