@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
-#define MAX 1024
 /**
  * print_listint_safe - a function that prints a listint_t linked list.
  * @head: the list we want to print.
@@ -9,22 +8,26 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *current = head;
-	const listint_t *visited[MAX] = {NULL};
-	size_t i = 0, count = 0;
+	const listint_t *slw_pt = head, *fst_pt = head;
+	size_t count = 0;
 
-	while (current != NULL)
+	while (slw_pt != NULL && fst_pt != NULL && fst_pt->next != NULL)
 	{
-		i = ((size_t)current % MAX);
-		if (visited[i] == current)
+		printf("[%p] %d\n", (void *)slw_pt, slw_pt->n);
+		count++;
+		slw_pt = slw_pt->next;
+		fst_pt = fst_pt->next->next;
+		if (slw_pt == fst_pt)
 		{
-			printf("-> [%p] %d\n", (void *)current, current->n);
+			printf("-> [%p] %d\n", (void *)fast_ptr, fast_ptr->n);
 			exit(98);
 		}
-		visited[i] = current;
-		printf("[%p] %d\n", (void *)current, current->n);
+	}
+	while (slw_pt != NULL)
+	{
+		printf("[%p] %d\n", (void *)slw_pt, slw_pt->n);
 		count++;
-		current = current->next;
+		slw_pt = slw_pt->next;
 	}
 
 	return (count);
