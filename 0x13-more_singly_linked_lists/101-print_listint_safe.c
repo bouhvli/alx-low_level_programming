@@ -19,7 +19,7 @@ size_t print_listint_safe(const listint_t *head)
 		fst_pt = fst_pt->next->next;
 		if (slw_pt == fst_pt)
 		{
-			printf("-> [%p] %d\n", (void *)fast_ptr, fast_ptr->n);
+			printf("-> [%p] %d\n", (void *)fst_pt, fst_pt->n);
 			exit(98);
 		}
 	}
