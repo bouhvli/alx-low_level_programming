@@ -1,5 +1,0 @@
-!/bin/bash
-git add .
-echo “Enter commit message: “
-git commit -am “$commitMessage”
-git push
