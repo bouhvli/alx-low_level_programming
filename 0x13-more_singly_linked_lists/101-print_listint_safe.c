@@ -19,6 +19,7 @@ size_t print_listint_safe(const listint_t *head)
 		head = head->next;
 		if (tmp <= head)
 		{
+
 			printf("-> [%p] %d\n", (void *)head, head->n);
 			return (count);
 			exit(98);
