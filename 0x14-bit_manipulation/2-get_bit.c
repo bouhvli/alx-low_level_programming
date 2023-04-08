@@ -10,10 +10,11 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int position = (1 << index);
+	unsigned long int position = (1 << index), max_bit;
 	bool bit = 0;
 
-	if (position > n)
+	max_bit = sizeof(unsigned long int) * 8 - 1;
+	if (index > max_bit)
 		return (-1);
 	bit = n & position;
 	if (bit)
