@@ -84,11 +84,10 @@ void read_and_write(const char *filename,
 			dprintf(2,
 				"Error: Can't read from file %s\n",
 				filename);
-			_close(2, file, file_to);
-			exit(98);
+				exit(98);
 		}
 		byteWritten = write(file_to, buffer, bytesRead);
-		if (byteWritten == -1 || bytesRead != byteWritten)
+		if (byteWritten == -1)
 		{
 			dprintf(2,
 				"Error: Can't write to %s\n",
@@ -97,6 +96,7 @@ void read_and_write(const char *filename,
 			exit(99);
 		}
 	} while (bytesRead > 0);
+	_close(2, file, file_to);
 }
 /**
  * _close - close files.
