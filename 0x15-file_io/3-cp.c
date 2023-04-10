@@ -73,6 +73,7 @@ void read_and_write(const char *filename,
 		exit(99);
 	}
 	file = open(filename, O_RDONLY);
+	_opened(file, 1, filename, "nope");
 	file_to = open(filename_to, O_WRONLY | O_TRUNC | O_CREAT, 662);
 	_opened(file, file_to, filename, filename_to);
 	do {
