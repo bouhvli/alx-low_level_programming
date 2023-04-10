@@ -74,7 +74,7 @@ void read_and_write(const char *filename, const char *filename_to)
 			S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 	_opened(1, file_to, "nope", filename_to);
 	do {
-		bytesRead = read(file, buffer, 1024);
+		bytesRead = read(file, buffer, sizeof(buffer));
 		if (bytesRead == -1)
 		{
 			dprintf(2,
@@ -88,10 +88,11 @@ void read_and_write(const char *filename, const char *filename_to)
 			dprintf(2,
 				"Error: Can't write to %s\n",
 				filename_to);
+			_close(3, file, file_to);
 			exit(99);
 		}
-	} while (bytesRead > 0);
-	_close(2, file, file_to);
+	} while (bytesRead > sizeof(buffer));
+	_close(3, file, file_to);
 }
 /**
  * _close - close files.
