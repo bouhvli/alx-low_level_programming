@@ -91,7 +91,7 @@ void read_and_write(const char *filename, const char *filename_to)
 			_close(3, file, file_to);
 			exit(99);
 		}
-	} while (bytesRead > 1024);
+	} while (bytesRead > 0);
 	_close(3, file, file_to);
 }
 /**
