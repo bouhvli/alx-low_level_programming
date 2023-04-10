@@ -4,8 +4,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 void _close(int n, ...);
-void read_and_write(const char *filename,
-		const char *filename_to, size_t letters);
+void read_and_write(const char *filename, const char *filename_to);
 void _opened(int f1, int f2, const char *fn1, const char *fn2);
 /**
  * main - a program that copies the content of a file to another file.
@@ -44,7 +43,7 @@ int main(int ac, char **av)
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	read_and_write(av[1], av[2], 1024);
+	read_and_write(av[1], av[2]);
 	return (0);
 }
 /**
@@ -54,14 +53,12 @@ int main(int ac, char **av)
  * @letters: number of letters to print.
  * @filename_to : a pointer to the file we copy to.
  */
-void read_and_write(const char *filename,
-		const char *filename_to, size_t letters)
+void read_and_write(const char *filename, const char *filename_to)
 {
-	char *buffer;
+	char buffer[1024];
 	ssize_t bytesRead, byteWritten;
 	int file, file_to;
 
-	buffer = malloc(sizeof(char) * letters);
 	if (filename == NULL)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", filename);
@@ -78,7 +75,7 @@ void read_and_write(const char *filename,
 			S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 	_opened(1, file_to, "nope", filename_to);
 	do {
-		bytesRead = read(file, buffer, letters);
+		bytesRead = read(file, buffer, 1024);
 		if (bytesRead == -1)
 		{
 			dprintf(2,
@@ -87,7 +84,7 @@ void read_and_write(const char *filename,
 				exit(98);
 		}
 		byteWritten = write(file_to, buffer, bytesRead);
-		if (byteWritten == -1)
+		if (byteWritten == -1 || byteWritten > bytesRead)
 		{
 			dprintf(2,
 				"Error: Can't write to %s\n",
