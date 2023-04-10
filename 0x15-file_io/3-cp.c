@@ -50,7 +50,6 @@ int main(int ac, char **av)
  * read_and_write - a function that reads a text file and prints it to the
  * another file.
  * @filename: a pointer to the file we copy from.
- * @letters: number of letters to print.
  * @filename_to : a pointer to the file we copy to.
  */
 void read_and_write(const char *filename, const char *filename_to)
@@ -89,7 +88,6 @@ void read_and_write(const char *filename, const char *filename_to)
 			dprintf(2,
 				"Error: Can't write to %s\n",
 				filename_to);
-			_close(2, file, file_to);
 			exit(99);
 		}
 	} while (bytesRead > 0);
@@ -135,7 +133,6 @@ void _opened(int f1, int f2, const char *fn1, const char *fn2)
 	if (f2 == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", fn2);
-		_close(1, f1);
 		exit(99);
 	}
 
