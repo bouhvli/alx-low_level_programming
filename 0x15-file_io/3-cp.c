@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
-#include <errno.h>
 void _close(int n, ...);
 void read_and_write(const char *filename,
 		const char *filename_to, size_t letters);
@@ -77,26 +76,27 @@ void read_and_write(const char *filename,
 	_opened(file, 1, filename, "nope");
 	file_to = open(filename_to, O_WRONLY | O_TRUNC | O_CREAT,
 			S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-	_opened(file, file_to, filename, filename_to);
-	while ((bytesRead = read(file, buffer, letters)) > 0)
-	{
-		if (bytesRead < 0)
+	_opened(1, file_to, "nope", filename_to);
+	do {
+		bytesRead = read(file, buffer, letters);
+		if (bytesRead == -1)
 		{
 			dprintf(2,
 				"Error: Can't read from file %s\n",
 				filename);
+			_close(2, file, file_to);
 			exit(98);
 		}
 		byteWritten = write(file_to, buffer, bytesRead);
-		if (byteWritten < 0 || bytesRead != byteWritten)
+		if (byteWritten == -1 || bytesRead != byteWritten)
 		{
 			dprintf(2,
 				"Error: Can't write to %s\n",
 				filename_to);
+			_close(2, file, file_to);
 			exit(99);
 		}
-	}
-	_close(2, file, file_to);
+	} while (bytesRead > 0);
 }
 /**
  * _close - close files.
@@ -112,7 +112,7 @@ void _close(int n, ...)
 	{
 		file = va_arg(fp, int);
 		state = close(file);
-		if (state < 0)
+		if (state == -1)
 		{
 			dprintf(2, "Error: Can't close fd %d\n", file);
 			exit(100);
@@ -130,12 +130,12 @@ void _close(int n, ...)
  */
 void _opened(int f1, int f2, const char *fn1, const char *fn2)
 {
-	if (f1 < 0)
+	if (f1 == -1)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", fn1);
 		exit(98);
 	}
-	if (f2 < 0)
+	if (f2 == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", fn2);
 		_close(1, f1);
