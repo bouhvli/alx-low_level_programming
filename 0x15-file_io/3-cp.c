@@ -4,7 +4,8 @@
 #include <stdarg.h>
 #include <unistd.h>
 void _close(int n, ...);
-void read_and_write(const char *filename, const char *filename_to);
+void read_and_write(const char *filename,
+		const char *filename_to, size_t letters);
 void _opened(int f1, int f2, const char *fn1, const char *fn2);
 /**
  * main - a program that copies the content of a file to another file.
@@ -43,21 +44,24 @@ int main(int ac, char **av)
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	read_and_write(av[1], av[2]);
+	read_and_write(av[1], av[2], 1024);
 	return (0);
 }
 /**
  * read_and_write - a function that reads a text file and prints it to the
  * another file.
  * @filename: a pointer to the file we copy from.
+ * @letters: number of letters to print.
  * @filename_to : a pointer to the file we copy to.
  */
-void read_and_write(const char *filename, const char *filename_to)
+void read_and_write(const char *filename,
+		const char *filename_to, size_t letters)
 {
-	char buffer[1024];
+	char *buffer;
 	ssize_t bytesRead, byteWritten;
 	int file, file_to;
 
+	buffer = malloc(sizeof(char) * letters);
 	if (filename == NULL)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", filename);
@@ -70,29 +74,27 @@ void read_and_write(const char *filename, const char *filename_to)
 	}
 	file = open(filename, O_RDONLY);
 	_opened(file, 1, filename, "nope");
-	file_to = open(filename_to, O_WRONLY | O_TRUNC | O_CREAT,
-			S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-	_opened(1, file_to, "nope", filename_to);
+	file_to = open(filename_to, O_WRONLY | O_TRUNC | O_CREAT, 662);
+	_opened(file, file_to, filename, filename_to);
 	do {
-		bytesRead = read(file, buffer, sizeof(buffer));
-		if (bytesRead == -1)
+		bytesRead = read(file, buffer, letters);
+		if (bytesRead < 0)
 		{
 			dprintf(2,
 				"Error: Can't read from file %s\n",
 				filename);
-				exit(98);
+			exit(98);
 		}
 		byteWritten = write(file_to, buffer, bytesRead);
-		if (byteWritten == -1 || byteWritten > bytesRead)
+		if (byteWritten < 0)
 		{
 			dprintf(2,
 				"Error: Can't write to %s\n",
 				filename_to);
-			_close(3, file, file_to);
 			exit(99);
 		}
-	} while (bytesRead > sizeof(buffer));
-	_close(3, file, file_to);
+	} while (bytesRead > 0);
+	_close(2, file, file_to);
 }
 /**
  * _close - close files.
@@ -108,7 +110,7 @@ void _close(int n, ...)
 	{
 		file = va_arg(fp, int);
 		state = close(file);
-		if (state == -1)
+		if (state < 0)
 		{
 			dprintf(2, "Error: Can't close fd %d\n", file);
 			exit(100);
@@ -126,15 +128,15 @@ void _close(int n, ...)
  */
 void _opened(int f1, int f2, const char *fn1, const char *fn2)
 {
-	if (f1 == -1)
+	if (f1 < 0)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", fn1);
 		exit(98);
 	}
-	if (f2 == -1)
+	if (f2 < 0)
 	{
 		dprintf(2, "Error: Can't write to %s\n", fn2);
+		_close(1, f1);
 		exit(99);
 	}
-
 }
