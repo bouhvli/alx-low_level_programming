@@ -94,11 +94,7 @@ void read_and_write(const char *filename,
 			exit(99);
 		}
 	} while (bytesRead > 0);
-<<<<<<< HEAD
 	_close(2, file, file_to);
-=======
-	_close(3, file, file_to);
->>>>>>> 744b79101c182248676e32829c921feed91474ec
 }
 /**
  * _close - close files.
