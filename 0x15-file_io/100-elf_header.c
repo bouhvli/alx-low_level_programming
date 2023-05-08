@@ -90,6 +90,18 @@ void type(int elf_type)
 	printf("\n");
 }
 /**
+ * p_entry_valid - print the entry value the same way as readelf -h
+ * @elf_file: the elf header.
+ */
+void p_entry_valid(Elf64_Ehdr *elf_file)
+{
+	if (elf_file->e_ident[EI_DATA] == ELFDATA2MSB)
+		elf_file->e_entry = __builtin_bswap32(elf_file->e_entry);
+	elf_file->e_ident[EI_CLASS] == ELFCLASS32 ?
+		printf("%#x\n", (unsigned int)elf_file->e_entry) :
+		printf("%#lx\n", elf_file->e_entry);
+}
+/**
  * elf_info - will printf all the wanted info about the elf file entered.
  * @elf_file: the elf file header.
  */
@@ -123,7 +135,7 @@ void elf_info(Elf64_Ehdr *elf_file)
 	printf("%d\n", elf_file->e_ident[EI_ABIVERSION]);
 	type(elf_file->e_type);
 	printf("  Entry point address:               ");
-	printf("%#lx\n", (unsigned long)elf_file->e_entry);
+	p_entry_valid(elf_file);
 }
 /**
  * main - the main function.
@@ -141,12 +153,15 @@ int main(int ac, char *av[])
 		p_error("elf_header elf_filename");
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
-		p_error("can't open the file");
+	{
+		strcat(av[1], ": No such file");
+		p_error(av[1]);
+	}
 	bytes_number = read(fd, &elf_file, sizeof(Elf64_Ehdr));
 	if (bytes_number < 0)
 		p_error("can't read the ELF header");
 	if (bytes_number < (long int)sizeof(Elf64_Ehdr))
-		p_error("Unknown ELF header");
+		p_error("can't open the file");
 	check = memcmp(elf_file.e_ident, ELFMAG, (unsigned long)SELFMAG);
 	if (check != 0)
 		p_error("the file is not an ELF file");
