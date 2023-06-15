@@ -9,7 +9,7 @@
  */
 size_t len(const dlistint_t *h)
 {
-	const dlistint_t tmp;
+	const dlistint_t *tmp;
 	size_t count = 0;
 
 	if (h == NULL)
