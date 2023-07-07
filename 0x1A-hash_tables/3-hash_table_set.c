@@ -56,25 +56,25 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int idx;
 	hash_node_t *current_node;
 
-	if (value == NULL|| key == NULL || ht == NULL)
+	if (value == NULL || key == NULL || ht == NULL)
 		return (0);
 
 	idx = key_index((const unsigned char *)key, ht->size);
 	current_node = ht->array[idx];
 
-    while (current_node)
-    {
-        if (strcmp(current_node->key, key) == 0)
+	while (current_node)
+	{
+		if (strcmp(current_node->key, key) == 0)
 		{
-            free(current_node->value);
-            current_node->value = strdup(value);
-            return (1);
-        }
-        current_node = current_node->next;
-    }
-    node = create_node(key, value);
-    if (node == NULL)
-        return (0);
-    handle_collision(ht, node, idx);
-    return (1);
+			free(current_node->value);
+			current_node->value = strdup(value);
+			return (1);
+		}
+		current_node = current_node->next;
+	}
+	node = create_node(key, value);
+	if (node == NULL)
+		return (0);
+	handle_collision(ht, node, idx);
+	return (1);
 }
