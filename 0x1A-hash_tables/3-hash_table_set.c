@@ -56,38 +56,25 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int idx;
 	hash_node_t *current_node;
 
-	if (strcmp(key, "") == 0 || key == NULL || ht == NULL)
+	if (value == NULL|| key == NULL || ht == NULL)
 		return (0);
-	node = create_node(key, value);
+
 	idx = key_index((const unsigned char *)key, ht->size);
 	current_node = ht->array[idx];
-	if (node == NULL)
-		return (0);
-	if (current_node == NULL)
-	{
-		if (idx == ht->size)
+
+    while (current_node)
+    {
+        if (strcmp(current_node->key, key) == 0)
 		{
-			free(node->key);
-			free(node->value);
-			free(node);
-			return (0);
-		}
-		ht->array[idx] = node;
-	}
-	else
-	{
-		if (strcmp(current_node->key, key) == 0)
-		{
-			strcpy(ht->array[idx]->value, value);
-			if (ht->array[idx]->value == NULL)
-				return (0);
-			free(node->key);
-			free(node->value);
-			free(node);
-			return (1);
-		}
-		handle_collision(ht, node, idx);
-		return (1);
-	}
-	return (0);
+            free(current_node->value);
+            current_node->value = strdup(value);
+            return (1);
+        }
+        current_node = current_node->next;
+    }
+    node = create_node(key, value);
+    if (node == NULL)
+        return (0);
+    handle_collision(ht, node, idx);
+    return (1);
 }
