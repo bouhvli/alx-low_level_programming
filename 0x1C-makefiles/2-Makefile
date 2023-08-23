@@ -1,10 +1,12 @@
+all: generate
 CC = gcc
 SRC = main.c school.c
-OBJ = $(SRC:.c=.o)
+OBJ = main.o school.o
 NAME = school
 
-all: $(NAME)
-$(NAME): $(OBJ)
+generate: main.o school.o
 	$(CC) $(OBJ) -o $(NAME)
-%.o: %.c
-	$(CC) -c $<
+main.o:
+	$(CC)    -c -o main.o main.c
+school.o:
+	$(CC)    -c -o school.o school.c
