@@ -18,6 +18,6 @@ def island_perimeter(grid):
                     count += 1
                 if (row == len(grid) - 1 or grid[row + 1][col] == 0):
                     count += 1
-                if (col == len(grid[row] - 1) or grid[row][col + 1] == 0):
+                if (col == len(grid[row]) - 1 or grid[row][col + 1] == 0):
                     count += 1
     return (count)
