@@ -1,12 +1,25 @@
-all: generate
 CC = gcc
-SRC = *.c
-OBJ = *.o
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
 NAME = school
+RM = rm -f
 
-generate: main.o school.o
+all: $(NAME)
+
+$(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
-main.o:
-	$(CC)    -c -o main.o main.c
-school.o:
-	$(CC)    -c -o school.o school.c
+
+%.o: %.c
+	$(CC) -c $<
+
+clean:
+	$(RM) *~ $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean:
+	$(RM) *~ $(NAME)
+	$(RM) $(OBJ)
+
+re: oclean all
