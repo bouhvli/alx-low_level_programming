@@ -1,6 +1,6 @@
 #include "search_algos.h"
 /**
- * binary_search_l_r - function that searches for a value in a sorted array of
+ * binary_search_rcur - function that searches for a value in a sorted array of
  * integers using the Binary search algorithm using recursion.
  * @array: the array
  * @l: the start index.
